@@ -1,7 +1,45 @@
-$font-stack: Helvetica, sans-serif;
-$primary-color: #333;
+// Primary:
+$red: hsl(0, 100%, 74%);
+$green: hsl(154, 59%, 51%);
 
-body {
-  background-color: $primary-color;
-  color: wheat;
+// Accent:
+$blue: hsl(248, 32%, 49%);
+
+// Neutral:
+$dark_blue: hsl(249, 10%, 26%);
+$grayish_blue: hsl(246, 25%, 77%);
+
+/* CSS TEMPLATE
+    POSTION
+    position
+    top
+    left
+    right
+    z-index
+    BLOCK STRUCTURE
+    margin
+    padding
+    wight
+    height
+    border
+    DISPLAY
+    display
+    float
+    clear
+    overflow
+    OTHER
+    font-size
+    ::-webkit-textfield-decoration-containercolor
+    backgound
+*/
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.App {
+  background-color: $red;
+  max-width: 1440px;
+  margin: auto;
 }
