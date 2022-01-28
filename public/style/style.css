@@ -27,13 +27,17 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
-  background-color: #2f2f2f;
-}
-
 .App {
   background-color: #ff7a7a;
+  background-image: url("../images/bg-intro-desktop.png");
   max-width: 1440px;
   margin: auto;
+}
+
+@media (max-width: 640px) {
+  .App {
+    background-image: url("../images/bg-intro-mobile.png");
+    height: 100vh;
+  }
 }
 /*# sourceMappingURL=style.css.map */

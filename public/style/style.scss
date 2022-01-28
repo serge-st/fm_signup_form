@@ -9,6 +9,11 @@ $blue: hsl(248, 32%, 49%);
 $dark_blue: hsl(249, 10%, 26%);
 $grayish_blue: hsl(246, 25%, 77%);
 
+// Break Points:
+$mobile: 640px;
+$tablet: 1007px;
+$desktop: 1008px;
+
 /* CSS TEMPLATE
     POSTION
     position
@@ -40,6 +45,21 @@ $grayish_blue: hsl(246, 25%, 77%);
 
 .App {
   background-color: $red;
+  background-image: url("../images/bg-intro-desktop.png");
   max-width: 1440px;
   margin: auto;
 }
+
+@media (max-width: $tablet) {
+  .App {
+  }
+}
+
+@media (max-width: $mobile) {
+  .App {
+    background-image: url("../images/bg-intro-mobile.png");
+    height: 100vh;
+  }
+}
+
+
