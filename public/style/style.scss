@@ -49,15 +49,7 @@ $radius: .7em;
   color: $white;
 }
 
-.App {
-  max-width: 1440px;
-  margin: auto;
-  padding: 3.75em 5em;
-  background-color: $red;
-  background-image: url("../images/bg-intro-desktop.png");
-  line-height: 1.8em;
-}
-
+// Reset default styles:
 button, input {
   background: none;
 	color: inherit;
@@ -67,6 +59,16 @@ button, input {
 	cursor: pointer;
 	outline: inherit;
 }
+
+.App {
+  max-width: 1440px;
+  margin: auto;
+  padding: 3.75em 5em;
+  background-color: $red;
+  background-image: url("../images/bg-intro-desktop.png");
+  line-height: 1.8em;
+}
+
 
 .TryFreeButton {
   width: 100%;
@@ -79,13 +81,22 @@ button, input {
 
 .FormContainer {
   form {
-    padding: .8em;
+    padding: 1.3em;
     background-color: $white;
     border-radius: $radius;
     box-shadow: $shadow;
   }
   input {
     color: $dark_blue;
+    border: 1px solid rgba($dark_blue, 0.2);
+    border-radius: 4px;
+    width: 100%;
+    padding: .7em 1em .6em;
+    margin-bottom: 1em;
+  }
+  input::-webkit-input-placeholder {
+    font-weight: 600;
+    font-size: .9em;
   }
 }
 
@@ -98,7 +109,7 @@ button, input {
   .App {
     background-image: url("../images/bg-intro-mobile.png");
     height: 100vh;
-    padding: 3.75em 1em;
+    padding: 3.75em 1.4em;
   }
   .PromoText {
     padding: 3.5em 0;
