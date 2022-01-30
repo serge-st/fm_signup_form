@@ -31,8 +31,10 @@ export const Form: React.FC = () => {
 
         <button type="button">CLAIM YOUR FREE TRIAL</button>
 
-        <div>
-          <p>By clicking the button, you are agreeing to our <a href="https://google.com" rel="noreferrer" target="_blank">Terns and Services</a></p>
+        <div className="TermsServices">
+          <div>
+            <p>By clicking the button, you are agreeing to our <a href="https://google.com" rel="noreferrer" target="_blank">Terns and Services</a></p>
+          </div>
         </div>
       </form>
     </div>

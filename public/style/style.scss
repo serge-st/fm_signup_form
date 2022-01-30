@@ -19,30 +19,6 @@ $desktop: 1008px;
 $shadow: 0px 7px 1px 0px rgba(0,0,0,0.14);
 $radius: .7em;
 
-/* CSS TEMPLATE
-    POSTION
-    position
-    top
-    left
-    right
-    z-index
-    BLOCK STRUCTURE
-    margin
-    padding
-    wight
-    height
-    border
-    DISPLAY
-    display
-    float
-    clear
-    overflow
-    OTHER
-    font-size
-    ::-webkit-textfield-decoration-containercolor
-    backgound
-*/
-
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -63,24 +39,24 @@ button, input {
 .App {
   max-width: 1440px;
   margin: auto;
+  line-height: 1.8em;
   padding: 3.75em 5em 0;
   background-color: $red;
   background-image: url("../images/bg-intro-desktop.png");
-  line-height: 1.8em;
 }
 
 
 .TryFreePanel {
   width: 100%;
   height: 5em;
-  background-color: $blue;
-  border-radius: $radius;
-  box-shadow: $shadow;
   margin-bottom: 1.5em;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: $blue;
+  border-radius: $radius;
+  box-shadow: $shadow;
 }
 
 .FormContainer {
@@ -95,10 +71,10 @@ button, input {
     width: 100%;
   }
   input {
-    color: $dark_blue;
-    border: 1px solid rgba($dark_blue, 0.2);
     padding: .7em 1em .6em;
     margin-bottom: 1em;
+    border: 1px solid rgba($dark_blue, 0.2);
+    color: $dark_blue;
     font-weight: 600;
   }
   input:focus {
@@ -111,8 +87,8 @@ button, input {
   }
   button {
     padding: 1em 0 .9em;
-    background-color: $green;
     border: 1px solid darken($green, 5%);
+    background-color: $green;
     box-shadow: 0px 3px 1px 0px darken($green, 5%);
 
     font-weight: 600;
@@ -125,10 +101,30 @@ button, input {
     background-color: lighten($green, 5%);
   }
   button:active {
-    transform: translateY(3px);
     box-shadow: 0px 2px 1px 0px darken($green, 5%);
+    transform: translateY(3px);
     transition: box-shadow .3s, transform .2s;
+  }
+}
 
+.TermsServices {
+  margin-top: 1.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  line-height: 1.3em;
+  p {
+    margin: 0;
+    color: rgba($grayish_blue, .85);
+    text-align: center;
+    font-weight: 600;
+    font-size: .8em;
+    a {
+      color: $red;
+      font-weight: 700;
+      text-decoration: none;
+    }
   }
 }
 
