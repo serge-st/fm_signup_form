@@ -15,9 +15,12 @@ button, input {
   outline: inherit;
 }
 
+html, body, #root, .App {
+  height: 100%;
+  width: 100%;
+}
+
 .App {
-  max-width: 1440px;
-  margin: auto;
   line-height: 1.8em;
   padding: 3.75em 5em 0;
   background-color: #ff7a7a;
@@ -137,7 +140,6 @@ button, input {
 @media (max-width: 640px) {
   .App {
     background-image: url("../images/bg-intro-mobile.png");
-    height: 100vh;
     padding: 3.75em 1.4em;
   }
   .PromoText {

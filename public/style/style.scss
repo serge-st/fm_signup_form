@@ -36,9 +36,13 @@ button, input {
 	outline: inherit;
 }
 
+html, body, #root, .App {
+  height: 100%;
+  width: 100%;
+}
+
 .App {
-  max-width: 1440px;
-  margin: auto;
+
   line-height: 1.8em;
   padding: 3.75em 5em 0;
   background-color: $red;
@@ -129,14 +133,13 @@ button, input {
 }
 
 @media (min-width: $mobile) and (max-width: $tablet) {
-  // .App {
-  // }
+  .App {
+  }
 }
 
 @media (max-width: $mobile) {
   .App {
     background-image: url("../images/bg-intro-mobile.png");
-    height: 100vh;
     padding: 3.75em 1.4em;
   }
   .PromoText {
