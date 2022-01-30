@@ -41,13 +41,13 @@ button, input {
 .App {
   max-width: 1440px;
   margin: auto;
-  padding: 3.75em 5em;
+  padding: 3.75em 5em 0;
   background-color: #ff7a7a;
   background-image: url("../images/bg-intro-desktop.png");
   line-height: 1.8em;
 }
 
-.TryFreeButton {
+.TryFreePanel {
   width: 100%;
   height: 5em;
   background-color: #6055a5;
@@ -55,6 +55,16 @@ button, input {
   -webkit-box-shadow: 0px 7px 1px 0px rgba(0, 0, 0, 0.14);
           box-shadow: 0px 7px 1px 0px rgba(0, 0, 0, 0.14);
   margin-bottom: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 
 .FormContainer form {
@@ -65,18 +75,57 @@ button, input {
           box-shadow: 0px 7px 1px 0px rgba(0, 0, 0, 0.14);
 }
 
+.FormContainer input, .FormContainer button {
+  border-radius: 4px;
+  width: 100%;
+}
+
 .FormContainer input {
   color: #3e3c49;
   border: 1px solid rgba(62, 60, 73, 0.2);
-  border-radius: 4px;
-  width: 100%;
   padding: .7em 1em .6em;
   margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.FormContainer input:focus {
+  outline: 1px solid #6055a5;
 }
 
 .FormContainer input::-webkit-input-placeholder {
   font-weight: 600;
   font-size: .9em;
+  opacity: 0.8;
+}
+
+.FormContainer button {
+  padding: 1em 0 .9em;
+  background-color: #38cc8c;
+  border: 1px solid #30bb7f;
+  -webkit-box-shadow: 0px 3px 1px 0px #30bb7f;
+          box-shadow: 0px 3px 1px 0px #30bb7f;
+  font-weight: 600;
+  font-size: 1.1em;
+  letter-spacing: .1em;
+  -webkit-transition: -webkit-box-shadow .3s, -webkit-transform .2s;
+  transition: -webkit-box-shadow .3s, -webkit-transform .2s;
+  transition: box-shadow .3s, transform .2s;
+  transition: box-shadow .3s, transform .2s, -webkit-box-shadow .3s, -webkit-transform .2s;
+}
+
+.FormContainer button:hover, .FormContainer button:focus {
+  background-color: #4dd198;
+}
+
+.FormContainer button:active {
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+  -webkit-box-shadow: 0px 2px 1px 0px #30bb7f;
+          box-shadow: 0px 2px 1px 0px #30bb7f;
+  -webkit-transition: -webkit-box-shadow .3s, -webkit-transform .2s;
+  transition: -webkit-box-shadow .3s, -webkit-transform .2s;
+  transition: box-shadow .3s, transform .2s;
+  transition: box-shadow .3s, transform .2s, -webkit-box-shadow .3s, -webkit-transform .2s;
 }
 
 @media (max-width: 640px) {
