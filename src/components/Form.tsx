@@ -26,7 +26,9 @@ export const Form: React.FC<FormProps> = ({ changeAppState }) => {
 
   return (
     <div className="FormContainer">
-      <div className="TryFreePanel"><div><strong>Try it free 7 days</strong> then<br />$20/mo. thereafter</div></div>
+      <div className="TryFreePanel">
+        <div><strong>Try it free 7 days</strong> then<br />$20/mo. thereafter</div>
+      </div>
       <form>
         {Object.entries(userInfo).map(([key, value], index) => {
           return <Input key={index} name={key} placeholder={UserInfoEnum[key as keyof typeof UserInfoEnum]} type={key === "password" ? "password" : "text"} onUserChange={handleUserInfo} value={value} />

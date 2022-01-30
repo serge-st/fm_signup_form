@@ -21,13 +21,57 @@ html, body, #root, .App {
 }
 
 .App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10em 10em;
   line-height: 1.8em;
-  padding: 3.75em 5em 0;
   background-color: #ff7a7a;
   background-image: url("../images/bg-intro-desktop.png");
 }
 
-.TryFreePanel {
+.PromoText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.PromoText h1 {
+  font-size: 2.6em;
+  line-height: 1.3em;
+  letter-spacing: 1px;
+}
+
+.FormContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.FormContainer .TryFreePanel {
   width: 100%;
   height: 5em;
   margin-bottom: 1.5em;
@@ -137,8 +181,16 @@ html, body, #root, .App {
   text-decoration: none;
 }
 
+@media (min-width: 640px) and (max-width: 1007px) {
+  .App {
+    display: block;
+    padding: 3.75em 5em 0;
+  }
+}
+
 @media (max-width: 640px) {
   .App {
+    display: block;
     background-image: url("../images/bg-intro-mobile.png");
     padding: 3.75em 1.4em;
   }
