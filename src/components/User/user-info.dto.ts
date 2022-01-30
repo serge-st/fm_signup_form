@@ -4,3 +4,10 @@ export interface UserInfo {
   emailAddress: string;
   password: string;
 }
+
+export const userBlankData = {
+  firstName: "",
+  lastName: "",
+  emailAddress: "",
+  password: "",
+};

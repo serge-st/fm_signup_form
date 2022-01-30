@@ -1,18 +1,13 @@
 import { useState } from "react"
 import { Input } from "./Input"
 import { UserInfoEnum } from "./User/user-info.enum";
-import { UserInfo } from "./User/user-info.dto"
+import { userBlankData, UserInfo } from "./User/user-info.dto"
 interface FormProps {
   changeAppState: (userInfo: UserInfo) => void;
 }
 
 export const Form: React.FC<FormProps> = ({ changeAppState }) => {
-  const [userInfo, setUserInfo] = useState<UserInfo>({
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
-    password: "",
-  });
+  const [userInfo, setUserInfo] = useState<UserInfo>(userBlankData);
 
   const handleUserInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
