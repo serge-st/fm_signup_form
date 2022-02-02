@@ -16,7 +16,7 @@ button, input {
 }
 
 html, body, #root, .App {
-  height: 100%;
+  height: -webkit-fill-available;
   width: 100%;
 }
 
@@ -189,6 +189,10 @@ html, body, #root, .App {
 }
 
 @media (max-width: 640px) {
+  html, body, #root, .App {
+    height: auto;
+    width: 100%;
+  }
   .App {
     display: block;
     background-image: url("../images/bg-intro-mobile.png");

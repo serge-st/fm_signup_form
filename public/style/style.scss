@@ -37,12 +37,11 @@ button, input {
 }
 
 html, body, #root, .App {
-  height: 100%;
+  height: -webkit-fill-available;
   width: 100%;
 }
 
 .App {
-  // TODO TESTING
   display: flex;
   justify-content: center;
 
@@ -165,6 +164,11 @@ html, body, #root, .App {
 }
 
 @media (max-width: $mobile) {
+  html, body, #root, .App {
+    height: auto;
+    width: 100%;
+  }
+
   .App {
     display: block;
 

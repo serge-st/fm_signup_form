@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { userBlankData, UserInfo } from "./User/user-info.dto"
-import { Form } from "./Form";
+import { userBlankData, UserInfo } from "./user-data/user-info.dto"
+import { Form } from "./Form/Form";
 
 export const App: React.FC = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);

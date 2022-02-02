@@ -1,3 +1,5 @@
+import "./Input.scss"
+
 interface InputProps {
   placeholder: string;
   name: string;
