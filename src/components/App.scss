@@ -1,2 +1,53 @@
 @import 'colors';
 @import 'variables';
+
+.App {
+  display: flex;
+  justify-content: center;
+
+  padding: 10em 10em;
+
+  line-height: 1.8em;
+  
+  background-color: $red;
+  background-image: url("../../images/bg-intro-desktop.png");
+}
+
+@media (min-width: $desktop) {
+  body {
+    height: 100vh;
+  }
+  #root, .App {
+    height: -webkit-fill-available;
+  }
+}
+
+@media (min-width: $mobile) and (max-width: $tablet) {
+  // TODO fix background image in tablet portret mode
+  .App {
+    display: block;
+
+    padding: 3.75em 5em 0;
+  }
+}
+
+@media (max-width: $mobile) {
+  .App {
+    display: block;
+
+    background-image: url("../../images/bg-intro-mobile.png");
+    padding: 3.75em 1.4em;
+  }
+  .PromoText {
+    padding: 3.5em 0;
+    text-align: center;
+    h1 {
+      font-weight: 600;
+      font-size: 1.8em;
+      line-height: 1.3em;
+    }
+    p {
+      margin: 1.8em 0 0;
+    }
+  }  
+}

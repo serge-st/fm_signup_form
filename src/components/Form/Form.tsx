@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Input } from "../Input/Input"
 import { UserInfoEnum } from "../user-data/user-info.enum";
 import { userBlankData, UserInfo } from "../user-data/user-info.dto"
+import "./Form.scss";
 interface FormProps {
   changeAppState: (userInfo: UserInfo) => void;
 }
