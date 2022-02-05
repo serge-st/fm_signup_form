@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   
-  padding: 10em auto;
   
   line-height: 1.8em;
   
@@ -18,6 +17,12 @@
     flex-direction: column;
     justify-content: center;
   }
+}
+
+.DemoPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (min-width: $desktop) {
@@ -57,11 +62,14 @@
   }
 
   .App {
-    display: block;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     padding: 3.75em 5em;
 
     .PromoText {
+    margin-bottom: 2em;
       h1 {
         line-height: 1.3em;
         font-size: 2.6em;
