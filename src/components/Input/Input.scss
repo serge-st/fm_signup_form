@@ -25,8 +25,17 @@
     outline: 1px solid $red;
   }
 
-  div::before {
-    content: url(https://www.w3schools.com/css/smiley.gif)
+  .errorExclamation::after {
+    content: "!";
+
+    display: inline-block;
+    width: 1.51em;
+    height: 1.5em;
+    border-radius: 50%;
+
+    text-align: center;
+    background-color: $red;
+    font-weight: 500;
   }
 
   .errorMessage {
