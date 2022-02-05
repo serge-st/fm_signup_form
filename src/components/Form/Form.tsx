@@ -28,7 +28,7 @@ export const Form: React.FC<FormProps> = ({ changeAppState }) => {
   return (
     <div className="FormContainer">
       <div className="TryFreePanel">
-        <div><strong>Try it free 7 days</strong> then<br />$20/mo. thereafter</div>
+        <div><strong>Try it free 7 days</strong> then $20/mo. thereafter</div>
       </div>
       <form>
         {Object.entries(userInfo).map(([key, value], index) => {

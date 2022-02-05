@@ -3,14 +3,21 @@
 
 .App {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 
-  padding: 10em 10em;
+  padding: 10em 18em;
 
   line-height: 1.8em;
   
   background-color: $red;
   background-image: url("../../images/bg-intro-desktop.png");
+
+  .PromoText {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 @media (min-width: $desktop) {
@@ -20,6 +27,18 @@
   #root, .App {
     height: -webkit-fill-available;
   }
+
+  .PromoText {
+    max-width: 500px;
+  }
+
+  .PromoText {
+    h1 {
+      font-size: 3em;
+      line-height: 1.3em;
+      letter-spacing: 1px;
+    }
+  }
 }
 
 @media (min-width: $mobile) and (max-width: $tablet) {
@@ -28,6 +47,12 @@
     display: block;
 
     padding: 3.75em 5em 0;
+
+    .PromoText {
+      h1 {
+        font-size: 2.6em;
+      }
+    }
   }
 }
 
