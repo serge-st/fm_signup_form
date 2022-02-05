@@ -3,10 +3,12 @@
 
 .App {
   display: flex;
-  justify-content: space-between;
-
-  padding: 10em 18em;
-
+  // justify-content: space-between;
+  justify-content: center;
+  
+  // padding: 10em 18em;
+  padding: 10em auto;
+  
   line-height: 1.8em;
   
   background-color: $red;
@@ -26,6 +28,10 @@
   }
   #root, .App {
     height: -webkit-fill-available;
+  }
+
+  .App > div {
+    margin: 2.2em;
   }
 
   .PromoText {
