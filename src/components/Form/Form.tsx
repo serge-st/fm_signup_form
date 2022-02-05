@@ -22,7 +22,12 @@ export const Form: React.FC<FormProps> = ({ changeAppState }) => {
   }
 
   const handleFormSubmit = () => {
-    changeAppState(userInfo);
+    if (Object.values(userInfo).includes("")) {
+      console.log("some field is empty");
+      console.log(Object.entries(userInfo))
+    } else {
+      changeAppState(userInfo);
+    }
   }
 
   return (

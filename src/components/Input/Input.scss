@@ -1,2 +1,25 @@
 @import '../colors';
 @import '../variables';
+
+.FormContainer {
+  input {
+    padding: .7em 1em .6em;
+    margin-bottom: 1em;
+    border: 1px solid rgba($dark_blue, 0.2);
+    color: $dark_blue;
+    font-weight: 600;
+  }
+  input:focus {
+    outline: 1px solid $blue;
+  }
+  input::-webkit-input-placeholder {
+    font-weight: 600;
+    font-size: .9em;
+    opacity: 0.8;
+  }
+
+  .error {
+    border: 1px solid $red;
+    outline: 1px solid $red;
+  }
+}
