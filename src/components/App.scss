@@ -3,10 +3,8 @@
 
 .App {
   display: flex;
-  // justify-content: space-between;
   justify-content: center;
   
-  // padding: 10em 18em;
   padding: 10em auto;
   
   line-height: 1.8em;
@@ -48,14 +46,24 @@
 }
 
 @media (min-width: $mobile) and (max-width: $tablet) {
-  // TODO fix background image in tablet portret mode
+  body {
+    height: 100vh;
+  }
+  #root {
+    height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .App {
     display: block;
 
-    padding: 3.75em 5em 0;
+    padding: 3.75em 5em;
 
     .PromoText {
       h1 {
+        line-height: 1.3em;
         font-size: 2.6em;
       }
     }
