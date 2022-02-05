@@ -2,9 +2,11 @@
 @import '../variables';
 
 .FormContainer {
+  div {
+    margin-bottom: 1em;
+  }
   input {
     padding: .7em 1em .6em;
-    margin-bottom: 1em;
     border: 1px solid rgba($dark_blue, 0.2);
     color: $dark_blue;
     font-weight: 600;
@@ -18,8 +20,23 @@
     opacity: 0.8;
   }
 
-  .error {
+  .errorInput {
     border: 1px solid $red;
     outline: 1px solid $red;
+  }
+
+  div::before {
+    content: url(https://www.w3schools.com/css/smiley.gif)
+  }
+
+  .errorMessage {
+    margin: 0;
+    padding-right: .4em;
+
+    color: rgba($red, 0.8);
+    font-size: .6em;
+    font-style: italic;
+    font-weight: 600;
+    text-align: end;
   }
 }

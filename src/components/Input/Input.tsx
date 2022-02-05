@@ -1,5 +1,6 @@
-import { useState, useRef } from "react"
-import "./Input.scss"
+import { useState } from "react";
+import { UserInfoEnum } from "../user-data/user-info.enum";
+import "./Input.scss";
 
 interface InputProps {
   placeholder: string;
@@ -23,6 +24,9 @@ export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserCha
   }
 
   return (
-    <input className={isError && !isFocused ? "error" : ""} name={name} placeholder={placeholder} type={type} onChange={onUserChange} value={value} onFocus={handleFocus} onBlur={handleBlur} />
+    <div style={(isError && !isFocused) ? {marginBottom: ".3em"} : undefined}>
+      <input className={isError && !isFocused ? "errorInput" : ""} name={name} placeholder={placeholder} type={type} onChange={onUserChange} value={value} onFocus={handleFocus} onBlur={handleBlur} />
+      {(isError && !isFocused) && <p className="errorMessage" >{UserInfoEnum[name as keyof typeof UserInfoEnum]} cannot be empty</p>}
+    </div>
   )
 }
