@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { emailCondition, passwordCondition } from "../Form/Form";
 import { UserInfoEnum } from "../user-data/user-info.enum";
 import "./Input.scss";
 
@@ -18,22 +19,39 @@ export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserCha
     setIsFocused(!isFocused);
   }
 
-  const emptyErrorCondition = (): boolean => {
+  const isEmptyError = (): boolean => {
     if (isError && !isFocused && value.length === 0) {
       return true;
     }
     return false;
   }
 
+  const isInvalEmailError = (): boolean => {
+    if (name !== "emailAddress") {
+      return false;
+    } else if (isError && !isFocused && value.length > 0 && !emailCondition.test(value)) {
+      return true;
+    }
+    return false
+  }
+
+  const isInvalPasswordError = (): boolean => {
+    if (name !== "password") {
+      return false;
+    } else if (isError && !isFocused && value.length > 0 && !passwordCondition.test(value)) {
+      return true;
+    }
+    return false;
+  }
 
 
   return (
     <div
-      style={emptyErrorCondition() ? {marginBottom: ".3em"} : undefined}
-      className={emptyErrorCondition() ? "errorExclamation" : ""}
+      style={isEmptyError() || isInvalEmailError() || isInvalPasswordError() ? {marginBottom: ".3em"} : undefined}
+      className={isEmptyError() || isInvalEmailError() || isInvalPasswordError() ? "errorExclamation" : ""}
     >
       <input
-        className={emptyErrorCondition() ? "errorInput" : ""}
+        className={isEmptyError() || isInvalEmailError() || isInvalPasswordError() ? "errorInput" : ""}
         name={name}
         placeholder={placeholder}
         type={type}
@@ -42,9 +60,9 @@ export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserCha
         onFocus={handleFocus}
         onBlur={handleFocus}
       />
-      {emptyErrorCondition() && <p className="errorMessage" >{UserInfoEnum[name as keyof typeof UserInfoEnum]} cannot be empty</p>}
-      {/* {(passwordEmailErrorCondition() && name === "emailAddress") && <p className="errorMessage" >Please enter a valid email address</p>}
-      {(passwordEmailErrorCondition() && name === "password") && <p className="errorMessage" >Password must contain 1 digit, 1 upper and lower case character</p>} */}
+      {isEmptyError()  && <p className="errorMessage" >{UserInfoEnum[name as keyof typeof UserInfoEnum]} cannot be empty</p>}
+      {isInvalEmailError()  && <p className="errorMessage" >Please enter a valid email</p>}
+      {isInvalPasswordError()  && <p className="errorMessage" >Password should be 10 char long and contain 1 digit and lower and upper case chars</p>}
     </div>
   )
 }

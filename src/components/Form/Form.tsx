@@ -7,6 +7,10 @@ interface FormProps {
   changeAppState: (userInfo: UserInfo) => void;
 }
 
+export const emailCondition = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+// 10 char long, 1 digit, 1 lower and 1 upper case
+export const passwordCondition = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{10,}$/;
+
 export const Form: React.FC<FormProps> = ({ changeAppState }) => {
   const [userInfo, setUserInfo] = useState<UserInfo>(userBlankData);
   const [errors, setErrors] = useState<(keyof UserInfo)[]>([]);
@@ -26,24 +30,16 @@ export const Form: React.FC<FormProps> = ({ changeAppState }) => {
     if (Object.values(userInfo).includes("")) {
       const emptyFields = (Object.entries(userInfo) as [keyof UserInfo, string][]).filter(el => el[1] === "" ).map(el => el[0])
       setErrors(emptyFields)
-      return;
+    } else if (!emailCondition.test(userInfo.emailAddress)) {
+      console.log("weak emial/")
+      setErrors([...errors, "emailAddress"]);
+    } else if (!passwordCondition.test(userInfo.password)) {
+      console.log("weak /password")
+      setErrors([...errors, "password"]);
+    } else {
+      setErrors([]);
+      changeAppState(userInfo);
     }
-
-    // if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userInfo.emailAddress)) {
-    //   console.log("email is not valied");
-    //   setErrors(["emailAddress"]);
-    //   return;
-    // }
-
-    // // 10 char long, at least 1 lower case, 1 upper case and one digit
-    // if (!/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{10,}$/.test(userInfo.password)) {
-    //   console.log("password weak");
-    //   setErrors(["password"]);
-    //   return;
-    // }
-
-    setErrors([]);
-    changeAppState(userInfo);
   }
 
   return (
