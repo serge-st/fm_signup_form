@@ -12,7 +12,7 @@ interface InputProps {
 
 export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserChange, value }) => {
   // TODO don't forget to change default state to false
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
