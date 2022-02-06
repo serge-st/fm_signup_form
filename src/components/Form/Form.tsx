@@ -7,6 +7,8 @@ interface FormProps {
   changeAppState: (userInfo: UserInfo) => void;
 }
 
+
+// eslint-disable-next-line no-useless-escape
 export const emailCondition = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 // 10 char long, 1 digit, 1 lower and 1 upper case
 export const passwordCondition = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{10,}$/;
