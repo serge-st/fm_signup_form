@@ -11,6 +11,8 @@ interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserChange, value }) => {
+  // TODO don't forget to remove the comment below
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isError, setIsError] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
 
