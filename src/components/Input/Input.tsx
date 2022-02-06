@@ -18,20 +18,22 @@ export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserCha
     setIsFocused(!isFocused);
   }
 
-  const errorCondition = (): boolean => {
+  const emptyErrorCondition = (): boolean => {
     if (isError && !isFocused && value.length === 0) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
+
+
 
   return (
     <div
-      style={errorCondition() ? {marginBottom: ".3em"} : undefined}
-      className={errorCondition() ? "errorExclamation" : ""}
+      style={emptyErrorCondition() ? {marginBottom: ".3em"} : undefined}
+      className={emptyErrorCondition() ? "errorExclamation" : ""}
     >
       <input
-        className={errorCondition() ? "errorInput" : ""}
+        className={emptyErrorCondition() ? "errorInput" : ""}
         name={name}
         placeholder={placeholder}
         type={type}
@@ -40,7 +42,9 @@ export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserCha
         onFocus={handleFocus}
         onBlur={handleFocus}
       />
-      {errorCondition() && <p className="errorMessage" >{UserInfoEnum[name as keyof typeof UserInfoEnum]} cannot be empty</p>}
+      {emptyErrorCondition() && <p className="errorMessage" >{UserInfoEnum[name as keyof typeof UserInfoEnum]} cannot be empty</p>}
+      {/* {(passwordEmailErrorCondition() && name === "emailAddress") && <p className="errorMessage" >Please enter a valid email address</p>}
+      {(passwordEmailErrorCondition() && name === "password") && <p className="errorMessage" >Password must contain 1 digit, 1 upper and lower case character</p>} */}
     </div>
   )
 }
