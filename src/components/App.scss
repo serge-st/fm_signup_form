@@ -1,0 +1,100 @@
+@import 'colors';
+@import 'variables';
+
+.App {
+  display: flex;
+  justify-content: center;
+  
+  
+  line-height: 1.8em;
+  
+  background-color: $red;
+  background-image: url("../../images/bg-intro-desktop.png");
+
+  .PromoText {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.DemoPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: $desktop) {
+  body {
+    height: 100vh;
+  }
+  #root, .App {
+    height: -webkit-fill-available;
+  }
+
+  .App > div {
+    margin: 2.2em;
+  }
+
+  .PromoText {
+    max-width: 500px;
+  }
+
+  .PromoText {
+    h1 {
+      font-size: 3em;
+      line-height: 1.3em;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+@media (min-width: $mobile) and (max-width: $tablet) {
+  body {
+    height: 100vh;
+  }
+  #root {
+    height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .App {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    padding: 3.75em 5em;
+
+    .PromoText {
+    margin-bottom: 2em;
+      h1 {
+        line-height: 1.3em;
+        font-size: 2.6em;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .App {
+    display: block;
+
+    background-image: url("../../images/bg-intro-mobile.png");
+    padding: 3.75em 1.4em;
+  }
+  .PromoText {
+    padding: 3.5em 0;
+    text-align: center;
+    h1 {
+      font-weight: 600;
+      font-size: 1.8em;
+      line-height: 1.3em;
+    }
+    p {
+      margin: 1.8em 0 0;
+    }
+  }  
+}
