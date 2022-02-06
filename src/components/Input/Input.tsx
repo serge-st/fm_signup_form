@@ -44,7 +44,6 @@ export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserCha
     return false;
   }
 
-
   return (
     <div
       style={isEmptyError() || isInvalEmailError() || isInvalPasswordError() ? {marginBottom: ".3em"} : undefined}
