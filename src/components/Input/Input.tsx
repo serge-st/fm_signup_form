@@ -8,22 +8,39 @@ interface InputProps {
   value: string;
   type: string;
   onUserChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  isError: boolean;
 }
 
-export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserChange, value }) => {
-  // TODO don't forget to remove the comment below
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isError, setIsError] = useState(false);
+export const Input: React.FC<InputProps> = ({ name, placeholder, type, onUserChange, value, isError }) => { 
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
     setIsFocused(!isFocused);
   }
 
+  const errorCondition = (): boolean => {
+    if (isError && !isFocused && value.length === 0) {
+      return true
+    }
+    return false
+  }
+
   return (
-    <div style={(isError && !isFocused) ? {marginBottom: ".3em"} : undefined} className={isError && !isFocused ? "errorExclamation" : ""}>
-      <input className={isError && !isFocused ? "errorInput" : ""} name={name} placeholder={placeholder} type={type} onChange={onUserChange} value={value} onFocus={handleFocus} onBlur={handleFocus} />
-      {(isError && !isFocused) && <p className="errorMessage" >{UserInfoEnum[name as keyof typeof UserInfoEnum]} cannot be empty</p>}
+    <div
+      style={errorCondition() ? {marginBottom: ".3em"} : undefined}
+      className={errorCondition() ? "errorExclamation" : ""}
+    >
+      <input
+        className={errorCondition() ? "errorInput" : ""}
+        name={name}
+        placeholder={placeholder}
+        type={type}
+        onChange={onUserChange}
+        value={value}
+        onFocus={handleFocus}
+        onBlur={handleFocus}
+      />
+      {errorCondition() && <p className="errorMessage" >{UserInfoEnum[name as keyof typeof UserInfoEnum]} cannot be empty</p>}
     </div>
   )
 }

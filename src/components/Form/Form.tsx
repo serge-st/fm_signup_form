@@ -9,6 +9,7 @@ interface FormProps {
 
 export const Form: React.FC<FormProps> = ({ changeAppState }) => {
   const [userInfo, setUserInfo] = useState<UserInfo>(userBlankData);
+  const [errors, setErrors] = useState<(keyof UserInfo)[]>([]);
 
   const handleUserInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
@@ -23,9 +24,10 @@ export const Form: React.FC<FormProps> = ({ changeAppState }) => {
 
   const handleFormSubmit = () => {
     if (Object.values(userInfo).includes("")) {
-      console.log("some field is empty");
-      console.log(Object.entries(userInfo))
+      const emptyFields = (Object.entries(userInfo) as [keyof UserInfo, string][]).filter(el => el[1] === "" ).map(el => el[0])
+      setErrors(emptyFields)
     } else {
+      setErrors([]);
       changeAppState(userInfo);
     }
   }
@@ -36,9 +38,22 @@ export const Form: React.FC<FormProps> = ({ changeAppState }) => {
         <div><strong>Try it free 7 days</strong> then $20/mo. thereafter</div>
       </div>
       <form>
-        {Object.entries(userInfo).map(([key, value], index) => {
-          return <Input key={index} name={key} placeholder={UserInfoEnum[key as keyof typeof UserInfoEnum]} type={key === "password" ? "password" : "text"} onUserChange={handleUserInfo} value={value} />
-        })}
+        {
+          (Object.entries(userInfo) as [keyof UserInfo, string][])
+            .map(([key, value], index) => {
+              return (
+                <Input
+                  key={index}
+                  name={key}
+                  isError={errors.includes(key)}
+                  placeholder={UserInfoEnum[key as keyof typeof UserInfoEnum]}
+                  type={key === "password" ? "password" : "text"}
+                  onUserChange={handleUserInfo} value={value}
+                />
+              )
+            }
+          )
+        }
 
         <button type="button" onClick={handleFormSubmit} >CLAIM YOUR FREE TRIAL</button>
 
