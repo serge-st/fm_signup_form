@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/serge-st/fm_signup_form)
-- Live Site URL on surge.sh: [Add live site URL here](https://fm-signup-form-serge-st.surge.sh)
+- Solution URL: [Solution URL here](https://github.com/serge-st/fm_signup_form)
+- Live Site URL on surge.sh: [Live site URL here](https://fm-signup-form-serge-st.surge.sh)
 
 ## My process
 
